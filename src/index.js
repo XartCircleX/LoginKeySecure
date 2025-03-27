@@ -19,7 +19,7 @@ const init = () => {
     apiConfig(app); //API configuration
     routerConfig(app);
 
-    const usersPort = process.env.USERSPORT || 5000;
+    const usersPort = globalConstants.USERSPORT;
     //Confirmation that the server is running
     app.listen(usersPort, () => {
         console.log('\n\n--------------------------------------------');

@@ -1,6 +1,6 @@
 //Users controller
 const dbPool= require('../config/db');
-const { hash } = require('../utils/hash'); 
+const { hash } = require('../utils/hash');  // Import the function to hashe passwords
 //Hash functions hash encrypts, compare compares with preexistent
 
 module.exports = {
@@ -41,8 +41,8 @@ module.exports = {
             if (!username || !pass) {
                 return res.status(400).json({ error: 'Name and password need to be completed' });
             }
-            const hashedPass = await hash(pass);
-            const [result] = await dbPool.query('INSERT INTO users (username, pass) VALUES (?, ?)', [username, hashedPass]);
+            const hashedPass = await hash(pass); //Save the password hased/encrypted 
+            const [result] = await dbPool.query('INSERT INTO users (username, pass) VALUES (?, ?)', [username, hashedPass]); //Save the information in the db
             res.json({ message: 'User created successfully', id: result.insertId });
 
         } catch (err) {
@@ -58,8 +58,8 @@ module.exports = {
             const { id } = req.params;
             const { username, pass } = req.body;
 
-            const hashedPass = await hash(pass);
-            const [result] = await dbPool.query('UPDATE users SET username = ?, pass = ? WHERE id = ?', [username, hashedPass, id]);
+            const hashedPass = await hash(pass); //Save the password hased/encrypted 
+            const [result] = await dbPool.query('UPDATE users SET username = ?, pass = ? WHERE id = ?', [username, hashedPass, id]); //Save the information in the db
 
             if (result.affectedRows === 0) {
                 return res.status(404).json({ error: 'User not found' });
