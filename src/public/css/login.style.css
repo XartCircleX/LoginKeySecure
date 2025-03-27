@@ -1,0 +1,42 @@
+body{
+    background-color: rgb(0, 0, 0);
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center; /*Horizontal*/
+    align-items: center; /*Vertical*/
+    min-height: 100svh;
+    min-width: 100svw;
+    font-size: larger;
+}
+
+.login-container {
+    background-color: aqua;
+    border-color: crimson;
+    border-radius: 1rem;
+    border-width: 1rem;
+    justify-content: center; /*Horizontal*/
+    align-items: center; /*Vertical*/
+    width: 30rem;
+    height: 25rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem; /*Space between border and elements*/
+    gap: 0.5rem; /*Space between items*/
+}
+
+form+p { /*Any p that is after a form will be*/
+    text-align: center;
+}
+
+.sr-only { /*Hidde the labels of the form*/
+    position: absolute;
+    left: -10000000000rem;
+    top: auto;
+    width: 0.1rem;
+    height: 0.1rem;
+    overflow: hidden;
+}
