@@ -21,7 +21,7 @@ body{
     color: white;
 }
 
-.login-container {
+.register-container {
     border-style: solid;
     border-color: crimson;
     border-radius: 1rem;
@@ -33,7 +33,7 @@ body{
     margin: 1rem;
 }
 
-.login-container p {
+.register-container p {
     justify-content: center;
     margin-left: 1rem;
 }
